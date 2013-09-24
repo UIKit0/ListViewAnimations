@@ -128,6 +128,17 @@ public abstract class ArrayAdapter<T> extends BaseAdapter implements DynamicList
 		mItems.clear();
 		notifyDataSetChanged();
 	}
+	
+	/**
+	 * Clear the list and add all of the elements in the specified collection
+	 * into the list.  Calls notifyDataSetChanged.
+	 * 
+	 * @param items the collection of items to add to the list
+	 */
+	public void clearAndAddAll(Collection<? extends T> items) {
+		mItems.clear();
+		addAll(items);
+	}
 
 	/**
 	 * Replaces the element at the specified position in this list with the
@@ -175,7 +186,7 @@ public abstract class ArrayAdapter<T> extends BaseAdapter implements DynamicList
 		mItems.removeAll(items);
 		notifyDataSetChanged();
 	}
-
+	
 	/**
 	 * Retains only the elements in the list that are contained in the specified
 	 * collection

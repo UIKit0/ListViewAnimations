@@ -17,6 +17,7 @@ package com.haarman.listviewanimations.swinginadapters.prepared;
 
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.BaseAdapter;
 
 import com.haarman.listviewanimations.swinginadapters.SingleAnimationAdapter;
@@ -31,19 +32,27 @@ public class SwingBottomInAnimationAdapter extends SingleAnimationAdapter {
 
 	private final long mAnimationDelayMillis;
 	private final long mAnimationDurationMillis;
+	private Adapter baseAdapter;
 
 	public SwingBottomInAnimationAdapter(BaseAdapter baseAdapter) {
 		this(baseAdapter, DEFAULTANIMATIONDELAYMILLIS, DEFAULTANIMATIONDURATIONMILLIS);
+		this.baseAdapter = baseAdapter;
 	}
 
 	public SwingBottomInAnimationAdapter(BaseAdapter baseAdapter, long animationDelayMillis) {
 		this(baseAdapter, animationDelayMillis, DEFAULTANIMATIONDURATIONMILLIS);
+		this.baseAdapter = baseAdapter;
 	}
 
 	public SwingBottomInAnimationAdapter(BaseAdapter baseAdapter, long animationDelayMillis, long animationDurationMillis) {
 		super(baseAdapter);
 		mAnimationDelayMillis = animationDelayMillis;
 		mAnimationDurationMillis = animationDurationMillis;
+		this.baseAdapter = baseAdapter;
+	}
+	
+	public Adapter getBaseAdapter() {
+		return baseAdapter;
 	}
 
 	@Override

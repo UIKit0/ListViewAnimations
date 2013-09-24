@@ -16,6 +16,7 @@
 package com.haarman.listviewanimations.itemmanipulation;
 
 import android.widget.AbsListView;
+import android.widget.Adapter;
 import android.widget.BaseAdapter;
 
 import com.haarman.listviewanimations.BaseAdapterDecorator;
@@ -28,12 +29,19 @@ public class SwipeDismissAdapter extends BaseAdapterDecorator {
 
 	private OnDismissCallback mCallback;
 	private SwipeDismissListViewTouchListener mSwipeDismissListViewTouchListener;
+	private Adapter baseAdapter;
 
 	public SwipeDismissAdapter(BaseAdapter baseAdapter, OnDismissCallback callback) {
 		super(baseAdapter);
 		mCallback = callback;
+		this.baseAdapter = baseAdapter;
 	}
 
+	public Adapter getBaseAdapter() {
+		return baseAdapter;
+	}
+
+	
 	@Override
 	public void setAbsListView(AbsListView listView) {
 		super.setAbsListView(listView);
