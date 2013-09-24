@@ -65,6 +65,15 @@ public abstract class ArrayAdapter<T> extends BaseAdapter implements DynamicList
 	public long getItemId(int position) {
 		return position;
 	}
+	
+	/**
+	 * Gets all the items in the list.
+	 * 
+	 * @return a list of all items
+	 */
+	public List<T> getAllItems() {
+		return new ArrayList<T>(mItems);
+	}
 
 	/**
 	 * Appends the specified element to the end of the list.
